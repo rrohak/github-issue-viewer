@@ -1,5 +1,7 @@
 # GithubIssueBrowser
 
+Will need to add github api key in [auth-interceptor](src/app/services/auth-interceptor.service.ts) on line 14. Also the repo can be changed by editing the [global constants file](src/app/constant/global.constants.ts).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
 
 ## Development server

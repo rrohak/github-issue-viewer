@@ -1,0 +1,78 @@
+.avatar {
+  border-radius: 50%;
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+}
+
+.username {
+  display: inline-block;
+}
+
+.issue-card {
+  width: 80%;
+  min-height: 200px;
+  position: relative;
+  left: 10%;
+  border-radius: 2px;
+  background: #fff;
+  margin-bottom: 3ch;
+}
+
+.first-element {
+  margin-top: 7ch;
+}
+
+.issue-title {
+  box-sizing: border-box;
+  font-size: 32px;
+  background-color: #f5f8fa;
+}
+
+hr {
+  margin-top: 0;
+}
+
+.date {
+  display: inline;
+  float: right;
+  margin-right: 2ch;
+}
+
+.created-and-updated {
+  display: inline-block;
+  color: gray;
+}
+
+.username {
+  margin-left: 1ch;
+}
+
+.avatar {
+  margin-left: 2ch;
+}
+
+.issue-body {
+  max-width: 80%;
+}
+
+.assignee-avatar {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  margin-left: 2ch;
+  margin-right: 2ch;
+}
+
+.state {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+#state-header {
+  display: inline-block;
+  margin-right: 2ch;
+}

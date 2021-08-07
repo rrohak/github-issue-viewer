@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <div class="first-element issue-card card-shadow">
+        <div class="issue-title">{{this.issue.title}}</div>
+        <hr>
+        <img class="avatar"
+             [src]="this.issue.user.avatar_url"
+             alt="Avatar url of {{this.issue.user.login}}">
+        <div class="username">{{this.issue.user.login}}</div>
+        <div class="date" *ngIf="this.issue.created_at !== this.issue.updated_at else createdIssue">
+          Last updated on {{this.issue.updated_at | date: 'MMM d, y'}}.
+          <p class="created-and-updated">Created on {{this.issue.created_at | date: 'MMM d, y'}}
+          </p>
+        </div>
+        <ng-template #createdIssue>
+          <div class="date">Created on {{this.issue.created_at | date: 'MMM d, y'}}</div>
+        </ng-template>
+        <div class="d-flex justify-content-center">
+          <p class="issue-body">{{this.issue.body}}</p>
+        </div>
+      </div>
+      <div class="comment issue-card card-shadow" *ngFor="let comment of comments">
+        <img class="avatar"
+             [src]="this.comment.user.avatar_url"
+             alt="Avatar url of {{this.comment.user.login}}">
+        <div class="username">{{this.comment.user.login}}</div>
+        <div class="date"
+             *ngIf="this.comment.created_at !== this.comment.updated_at else createdComment">
+          Last updated on {{this.comment.updated_at | date: 'MMM d, y'}}
+        </div>
+        <ng-template #createdComment>
+          <div class="date">Commented on {{this.comment.created_at | date: 'MMM d, y'}}</div>
+        </ng-template>
+        <div class="d-flex justify-content-center">
+          <div class="issue-body">{{this.comment.body}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="assigneeList first-element">
+        <h3>Assignees</h3>
+        <hr>
+        <div *ngFor="let assignee of this.issue.assignees" class="assignee">
+          <img class="assignee-avatar" src="{{assignee.avatar_url}}" alt="{{assignee.login}}'s avatar">
+          {{assignee.login}}
+        </div>
+      </div>
+      <hr *ngIf="this.issue.assignees.length !== 0">
+      <div class="labelList">
+        <h3>Labels</h3>
+        <hr>
+        <div *ngFor="let label of this.issue.labels" class="label" [style.background-color]="'#'+label.color">
+          {{label.name}}
+        </div>
+      </div>
+      <hr *ngIf="this.issue.labels.length !== 0">
+      <h5 id="state-header">This issue is {{this.issue.state}}</h5>
+      <div class="state" [style.background-color]="stateBackgroundColor()"></div>
+    </div>
+  </div>
+</div>

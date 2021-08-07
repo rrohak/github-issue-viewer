@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="filter-bar d-flex justify-content-around">
+    <select [ngModel]="state"
+            (ngModelChange)="selectChange($event)"
+            name="state"
+            id="state-select">
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+      <option value="all">All</option>
+    </select>
+    <select [ngModel]="sort" (ngModelChange)="selectChange($event)" name="sort" id="sort-select">
+      <option value="created">Created Date</option>
+      <option value="updated">Updated Date</option>
+      <option value="comments">Comments</option>
+    </select>
+    <select [ngModel]="order" (ngModelChange)="selectChange($event)" name="order" id="order-select">
+      <option value="desc">Desc</option>
+      <option value="asc">Asc</option>
+    </select>
+  </div>
+  <app-issue-card *ngFor="let issue of issueList | slice: start: end"
+                  [issue]="issue"></app-issue-card>
+  <div class="d-flex justify-content-center">
+    <button *ngIf="currentPage !== 0" (click)="previousPage()" class="page-button btn btn-primary">
+      Previous Page (View last 10 issues)
+    </button>
+    <button *ngIf="!this.outOfIssues" (click)="nextPage()" class="page-button btn btn-primary">Next
+                                                                                               Page
+                                                                                               (View
+                                                                                               next
+                                                                                               10
+                                                                                               issues)
+    </button>
+  </div>
+</div>

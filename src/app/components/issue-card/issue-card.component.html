@@ -1,0 +1,17 @@
+<div class="container d-flex justify-content-center">
+  <div class="row issue-card d-flex justify-content-center align-items-center">
+    <div class="col-10">
+      <div class="issue-card-info">
+        <span class="state" [style.background-color]="stateBackgroundColor()"></span>
+        <div class="issue-title" (click)="navigateToIssue()">{{this.issue.title}}</div>
+        <div *ngFor="let label of this.issue.labels"
+             class="label"
+             [style.background-color]="'#'+label.color">{{label.name}}</div>
+        <div class="issue-secondary-info">#{{this.issue.number}} Opened by {{this.issue.user.login}}
+                                          on {{this.issue.created_at | date: 'MMM d, y'}}</div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="comment-number">{{this.issue.comments}} Comments</div>
+    </div>
+  </div></div>
